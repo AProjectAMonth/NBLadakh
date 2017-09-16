@@ -1,4 +1,4 @@
-<h1> NBLadakh <a href = "https://aprojectamonth.github.io/NBLadakh/Wireframe/index.html">(URL)</a></h1>
+<h1> NBLadakh <a href = "https://aprojectamonth.github.io/NBLadakh">(URL)</a></h1>
 
 As it is the first repository of our initiative AProjectAMonth, let's start it simple. We have very basic technologies used so that even a begineer can contribute to the project and don't feel left out. Collaborative development if our motto here. :)
 
