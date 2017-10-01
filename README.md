@@ -17,3 +17,5 @@ As it is the first repository of our initiative AProjectAMonth, let's start it s
 
 Anyone who want their code to reflect here can create a pull request to the repository. 
 Happy Coding! :)
+
+Checkout <a href="https://github.com/AProjectAMonth/NBLadakh/blob/master/CONTRIBUTING.md"> here</a> for more details on contribution to this repo
