@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hello Bulma!</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.2/css/bulma.min.css">
+    </head>
+    <body>
+        <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+            <div class="navbar-start">
+                <div class="navbar-brand">
+                    <a class="navbar-item title is-1" href="https://www.instagram.com/nbladakh">
+                        <img  class="image"src="https://instagram.fdel1-2.fna.fbcdn.net/t51.2885-19/s150x150/20837000_1863615380621609_4210135154963775488_a.jpg" alt="Nomadic Brothers">
+                        Nomadic Brothers
+                    </a>
+                </div>
+            </div>
+            <div class="navbar-end">
+                <a class="navbar-item is-active" href="#">Home</a>
+                <a class="navbar-item" href="#">About</a>
+                <a class="navbar-item" href="#">Contact Us</a>
+            </div>
+        </nav>
+        <!--<section class="section">-->
+        <div class="conatiner">
+            <div class="container content">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+        </div>
+        <div class="fluid-container">
+            <div class="grid" style="margin: 30px;">
+
+                {% for image in images %}
+                <div class="tile is-dark grid-item" id="image{{ image.code }}">
+                    <img src="{{ image.low_res_url }}" alt="">
+                </div>
+                {% endfor %}
+
+            </div>
+
+            {% for image in images %}
+            <div class="modal" id="modal{{ image.code }}">
+                <div class="modal-background"></div>
+                <div class="modal-content">{{ image.embed_code }}</div>
+                <button class="modal-close is-large" aria-label="close"></button>
+            </div>
+            {% endfor %}
+            <!-- END of CONTAINER-->
+        </div>
+        <style>
+            *{
+                padding:1%;
+            }
+            img{
+                padding:5px;
+            }
+        </style>
+        <!--</section>-->
+        <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+                var grid = document.querySelector('.grid');
+                var msnry = new Masonry( grid, {
+                        // options...
+                        gutter:10,
+                        itemSelector: '.tile is-dark grid-item',
+                        columnWidth: 200
+                });
+
+                // init with selector
+                var msnry = new Masonry( '.grid', {
+                    // options...
+                });
+                $(document).ready(function() {
+
+                    {% for image in images %}
+                    $('#image{{ image.code }}').click(function() {
+                        $('#modal{{ image.code }}').addClass('is-active');
+                    });
+                    {% endfor %}
+
+                    $('.modal-close').click(function() {
+                        $('.modal').removeClass('is-active');
+                    });
+                });
+
+        </script>
+    </body>
+</html>
