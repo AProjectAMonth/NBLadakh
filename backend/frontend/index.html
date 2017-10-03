@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+
+   <!--- basic page needs
+   ================================================== -->
+   <meta charset="utf-8">
+	<title>Nomadic Brothers</title>
+	<meta name="description" content="">  
+	<meta name="author" content="">
+
+   <!-- mobile specific metas
+   ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+ 	<!-- CSS
+   ================================================== -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.2/css/bulma.min.css">
+   <link rel="stylesheet" href="css/base.css">  
+   <link rel="stylesheet" href="css/main.css">
+   <link rel="stylesheet" href="css/vendor.css">     
+
+   <!-- script
+   ================================================== -->   
+	<script src="js/modernizr.js"></script>
+	<script src="js/pace.min.js"></script>
+
+   <!-- favicons
+	================================================== -->
+	<link rel="icon" type="image/png" href="favicon.png">
+
+</head>
+
+<body id="top"> 
+
+<style>
+	.navbar{
+		min-height: 7rem;
+	}
+	.navbar-end{
+		justify-content: center;
+	}
+	.navbar.is-dark{
+		background-color: rgba(17, 17, 17, 0.1);
+	}
+	.intro-content h1{
+		padding: 0;
+	}
+	.intro-content{
+		-webkit-transform: translateY(0rem);
+    	transform: translateY(0rem)
+	}
+
+</style>  
+
+	   <section id="intro">   
+
+   	<div class="intro-overlay"></div>	
+
+   	<div class="intro-content">
+   		<div class="row">
+
+   			<div class="col-twelve">
+
+	   			<h1>Nomadic Brothers</h1>
+
+	   		</div>  
+   			
+   		</div>   		 		
+   	</div> <!-- /intro-content --> 
+
+<!--    	<ul class="intro-social">        
+         <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+         <li><a href="#"><i class="fa fa-behance"></i></a></li>
+         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+         <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+      </ul> <!-- /intro-social --> -->      	
+
+   </section> <!-- /intro -->
+
+   <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+            <div class="container navbar-end">
+                <a class="navbar-item is-active" href="#">Home</a>
+				<a class="navbar-item" href="#about">About</a>
+				<a class="navbar-item" href="#portfolio">Portfolio</a>
+                <a class="navbar-item" href="#contact">Contact Us</a>
+            </div>
+        </nav>
+	
+	<!-- About Section
+   ================================================== -->
+	<section id="about">
+		<p>
+			Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. 
+			Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, 
+			commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. 
+			Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+		</p>
+	</section>
+	<!-- Portfolio Section
+   ================================================== -->
+	<section id="portfolio">
+
+   	<div class="row">
+
+   		<div class="col-twelve">
+
+   			<!-- portfolio-wrapper -->
+	         <div id="folio-wrapper" class="block-1-4 block-mob-full stack">
+	         	{% for item in images %}
+		         	<div class="bgrid folio-item">
+		               <div class="item-wrap">
+		               	<img src="{{item.url}}" alt="Liberty">
+		                  <a href="#modal-{{item.id}}" class="overlay">	                  	           
+		                     <div class="folio-item-table">
+		                     	<div class="folio-item-cell">
+	     					       <h3 class="folio-title">{{item.captiontext}}</h3>	     					    
+	     					    	 <span class="folio-types">
+	     					       	  {{item.username}}
+	     					       </span>
+	     					   </div>	                      	
+		                     </div>                    
+		                  </a>
+		               </div>	               
+		        		</div> <!-- /folio-item -->
+
+		        	<!--modals-->
+		            <div id="modal-{{item.id}}" class="popup-modal slider mfp-hide">	
+				     	<div class="media">
+				     		<img src="{{item.url}}" alt="" />
+				     	</div>      	
+
+					   <div class="description-box">
+					      <h4>nbladakh</h4>		      
+					      <p>{{item.captiontext}}</p>
+					      <div class="categories">Catagory</div>			               
+					   </div>
+
+				         <div class="link-box">
+				            <a href="#"><i class="fa fa-heart" aria-hidden="true"></i>{{item.likes_count}}</a>
+						      <a href="#" class="popup-modal-dismiss">Close</a>
+				         </div>		      
+
+					</div> <!-- /modal-01 -->
+				{% endfor %}
+
+
+				   <!-- modal popups - end
+	            ============================================================= -->
+
+	         </div> <!-- /portfolio-wrapper --> 
+
+   		</div>  <!-- /twelve -->   
+
+   	</div> <!-- /portfolio-content --> 
+		
+	</section> <!-- /portfolio --> 
+
+	
+<section id="contact">
+   	<div class="row contact-info">
+
+   		<div class="col-four tab-full">
+
+   			<div class="icon">
+   				<i class="icon-pin"></i>
+   			</div>
+
+   			<h5>Where to find us</h5>
+
+   			<p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            </p>
+
+   		</div>
+
+   		<div class="col-four tab-full collapse">
+
+   			<div class="icon">
+   				<i class="icon-mail"></i>
+   			</div>
+
+   			<h5>Email Us At</h5>
+
+   			<p>someone@somewhere.com<br>
+			   	info@somewhere.com			     
+			   </p>
+
+   		</div>
+
+   		<div class="col-four tab-full">
+
+   			<div class="icon">
+   				<i class="icon-phone"></i>
+   			</div>
+
+   			<h5>Call Us At</h5>
+
+   			<p>Phone: (+63) 555 1212<br>
+			   	Mobile: (+63) 555 0100<br>
+			     	Fax: (+63) 555 0101
+			   </p>
+
+   		</div>
+   		
+   	</div> <!-- /contact-info -->
+		
+	</section> <!-- /contact -->
+
+		      	<div id="go-top">
+		         <a class="smoothscroll" title="Back to Top" href="#top"><i class="fa fa-arrow-up"></i></a>
+		      </div>  
+
+   <!-- Java Script
+   ================================================== --> 
+   <script src="js/jquery-2.1.3.min.js"></script>
+   <script src="js/plugins.js"></script>
+   <script src="js/main.js"></script>
+
+</body>
+
+</html>
