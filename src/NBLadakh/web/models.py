@@ -10,9 +10,3 @@ class Image(models.Model):
     def create(cls, code, low_res_url, embed_code):
         img = cls(code=code, low_res_url=low_res_url, embed_code=embed_code)
         return img
-
-#class ImageManager(models.Manager):
- #   def create_Image(self, code, low_res_url, embed_code):
-  #      img = self.create(code=code, low_res_url=low_res_url,
-        #        embed_code=embed_code)
-       # return img
